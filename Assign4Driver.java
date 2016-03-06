@@ -37,6 +37,7 @@ public class Assign4Driver
             	
             	startWord = entries[0];
             	endWord = entries[1];
+            	int len = startWord.length();            
             	
             	startTime = System.nanoTime();
             	List<String> result = wordLadderSolver.computeLadder(startWord, endWord);
@@ -47,7 +48,6 @@ public class Assign4Driver
             
             catch (NoSuchLadderException e) 
             {
-                //e.printStackTrace();
                 System.err.println(e);
             }
         } 
