@@ -20,6 +20,10 @@ public class Assign4Driver
     {
     	String startWord;
         String endWord;
+		if (args.length != 2) {
+			System.err.println("Error: Incorrect number of command line arguments");
+			System.exit(-1);
+		}
     	String dictFile = args[0];
     	String inputFile = args[1];
     	
@@ -34,10 +38,11 @@ public class Assign4Driver
             try {
             	String line = inputs.get(i);
             	String[] entries = line.split("[\\s]+");
-            	
+            	if(entries.length != 2){
+            		throw new TooFewInputException("There are too few or too many inputs in line " + line + "\n**********\n");
+            	}
             	startWord = entries[0];
             	endWord = entries[1];
-            	int len = startWord.length();            
             	
             	startTime = System.nanoTime();
             	List<String> result = wordLadderSolver.computeLadder(startWord, endWord);
@@ -45,9 +50,16 @@ public class Assign4Driver
                 endTime = System.nanoTime();
                 if (correct) printWordLadder (startWord, endWord, result, startTime, endTime);
             }
-            
             catch (NoSuchLadderException e) 
             {
+                //e.printStackTrace();
+                System.err.println(e);
+            }
+            catch (TooFewInputException e) 
+            {
+                //e.printStackTrace();
+            	System.out.flush();
+            	System.err.flush();
                 System.err.println(e);
             }
         } 
@@ -94,12 +106,12 @@ public class Assign4Driver
     	{
     		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
     							+ " was found:\n");
-    		
+    		String word = "";
     		for (int i = 0; i < myWordLadder.size(); i++)
     		{
-    			System.out.println(myWordLadder.get(i));
+    			word = word.concat(myWordLadder.get(i) + " ");
     		}
-    		
+    		System.out.println(word);
             System.out.println("\nTotal runtime in (ns): " + (endTime - startTime) + "\n"); 	
     		System.out.print("**********\n\n");
     	}
