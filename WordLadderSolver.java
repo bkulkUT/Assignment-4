@@ -40,7 +40,7 @@ public class WordLadderSolver implements Assignment4Interface
 	
     // do not change signature of the method implemented from the interface
     @Override
-    public List<String> computeLadder(String startWord, String endWord) throws NoSuchLadderException 
+    public List<String> computeLadder(String startWord, String endWord) throws InvalidInputException, NoSuchLadderException 
     {
     	List<String> wordLadder;
     	List<String> words = myDictionary.getDictionaryWords();
@@ -48,7 +48,7 @@ public class WordLadderSolver implements Assignment4Interface
     	if (!words.contains(startWord) || !words.contains(endWord))
     	{
     		
-    		throw new NoSuchLadderException ("For the input words, " + "\""+ startWord +"\""+ " and "
+    		throw new InvalidInputException ("For the input words, " + "\""+ startWord +"\""+ " and "
     										 +"\""+ endWord +"\""
     										 +"\nAt least one of the words " + startWord +
     										 " and " + endWord + " is not a legitimate 5-letter word "

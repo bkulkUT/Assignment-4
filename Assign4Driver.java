@@ -58,6 +58,13 @@ public class Assign4Driver
             	System.err.flush();
                 System.err.println(e);
             }
+            catch(InvalidInputException e)
+            {
+                //e.printStackTrace();
+            	System.out.flush();
+            	System.err.flush();
+                System.err.println(e);
+            }
             catch (TooFewInputException e) 
             {
                 //e.printStackTrace();
@@ -111,6 +118,10 @@ public class Assign4Driver
     		for (int i = 0; i < myWordLadder.size(); i++)
     		{
     			word = word.concat(myWordLadder.get(i) + "\n");
+    		}
+    		if(myWordLadder.size() == 1)
+    		{
+    			word = word.concat(word);
     		}
     		System.out.println("For the input words, " + "\"" + start + "\""  + " and " +  "\"" + end +  "\"" + " the following word ladder"
 					+ " was found:\n" + word);
