@@ -53,6 +53,8 @@ public class Assign4Driver
             catch (NoSuchLadderException e) 
             {
                 //e.printStackTrace();
+            	System.out.flush();
+            	System.err.flush();
                 System.err.println(e);
             }
             catch (TooFewInputException e) 
@@ -104,14 +106,14 @@ public class Assign4Driver
     {
     	if (!myWordLadder.isEmpty())
     	{
-    		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
-    							+ " was found:\n");
     		String word = "";
     		for (int i = 0; i < myWordLadder.size(); i++)
     		{
     			word = word.concat(myWordLadder.get(i) + " ");
     		}
-    		System.out.println(word);
+    		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
+					+ " was found:\n" + word);
+  //  		System.out.println(word);
             System.out.println("\nTotal runtime in (ns): " + (endTime - startTime) + "\n"); 	
     		System.out.print("**********\n\n");
     	}
