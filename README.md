@@ -16,4 +16,8 @@
                There are 3 types of exceptions: Too few/too many input (if there are not just 2 words on 1 line)
                									InvalidInput (if word doesn't exist in dictionary)
                									NoSuchLadder (if there is no ladder between words)
+               									
+    JUnit tests: There are 3 test cases to test for 3 different main outputs: 
+    			 	returning a ladder, throwing no ladder exception, throwing word doesn't exist exception. 
+    			 To run these tests, please right click on the Test_CorrectOutput.java, go to Run as, and click JUnit Test.
 	
