@@ -32,6 +32,17 @@ public class Test_CorrectOutput {
 		assert(ladder.size()>0);
 		assert(ladder.get(0).equals("heads"));
 		assert(ladder.get(ladder.size()-1).equals("tails"));
+  		for (int i = 0; i < ladder.size()-1; i++)
+		{
+  			int difference = 0;
+  			for (int j = 0; j < 5; j++) //for this lab purpose, all words have only 5 characters
+  			{
+  				if (ladder.get(i).charAt(j) != ladder.get(i+1).charAt(j))
+  					difference++;
+  				
+  			}
+  			assert(difference == 1);
+		}
      }
 
 }
